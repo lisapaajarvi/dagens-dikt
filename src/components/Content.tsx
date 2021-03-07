@@ -9,9 +9,10 @@ import {Poem} from './Main';
 interface Props {
     isSpaceTheme: boolean;
     poems: Poem[];
+    favourites: Poem[];
 }
 function Content(props:Props) {
-
+    
     let background = props.isSpaceTheme? backgroundSpace : backgroundClassic;
     
     return (
@@ -28,6 +29,11 @@ function Content(props:Props) {
             </Route>
 
             <Route path="/marsvin" component={Marsvin}/>
+            <Route path="/favoriter">
+                <PoemView poems={props.favourites}/>
+            </Route>
+            
+
         
         </div>
     )

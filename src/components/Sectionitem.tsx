@@ -23,6 +23,16 @@ class Sectionitem extends Component<Props, State> {
         this.setState({ isModalVisible: false });
     };
 
+    addToFavourites = () => {
+        let favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+        
+        favourites.push(this.props.poem)
+
+        localStorage.setItem("favourites", JSON.stringify(favourites))
+
+        console.log({favourites})
+    }
+
     render() {
         return (
             <div style={ itemStyle } onClick={ this.openModal }>
@@ -38,7 +48,9 @@ class Sectionitem extends Component<Props, State> {
                                 <a href={this.props.poem.poet.url} target="_blank" rel="noreferrer">
                                 <p style= { poemStyle }>{this.props.poem.poet.name}</p>
                                 </a>
+                                <button style={ buttonStyle } onClick={this.addToFavourites}>Lägg till i favoriter</button>
                                 <button style= { buttonStyle } onClick={this.closeModal}>STÄNG</button>
+                                
                             </div>
                         </Modal>    
                     </ErrorBoundary>

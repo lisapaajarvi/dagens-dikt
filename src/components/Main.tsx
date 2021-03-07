@@ -16,12 +16,14 @@ export interface Poem {
 interface State {
     isSpaceTheme: boolean;
     poems: Poem[];
+    favourites: Poem[];
 
 }
 class Main extends Component <Props, State> {
     state: State = {
         isSpaceTheme: false,
-        poems: []
+        poems: [],
+        favourites: JSON.parse(localStorage.getItem('favourites') || '[]')
     }
 
     toggleTheme = () => {
@@ -45,15 +47,23 @@ class Main extends Component <Props, State> {
         this.fetchPoems();
     }
 
+    updateFavourites = () => {
+        this.setState({ favourites: JSON.parse(localStorage.getItem('favourites') || '[]')})
+    }
+
     componentDidMount() {
         this.fetchPoems();
-
     }  
     render() {
         return (
             <div style={ mainStyle }>
-                <Content isSpaceTheme={this.state.isSpaceTheme} poems={this.state.poems}/>
-                <Side onThemeClick = {this.toggleTheme} spaceTheme={this.state.isSpaceTheme} onReloadClick = {this.updatePoems}/>
+                <Content isSpaceTheme = {this.state.isSpaceTheme} poems={this.state.poems} favourites={this.state.favourites}/>
+                <Side 
+                    	onThemeClick = {this.toggleTheme} 
+                        spaceTheme = {this.state.isSpaceTheme} 
+                        onReloadClick = {this.updatePoems} 
+                        onFavouriteClick = {this.updateFavourites} 
+                />
             </div>            
         )
     }

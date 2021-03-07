@@ -10,6 +10,7 @@ interface Props {
     onThemeClick: () => void;
     spaceTheme: boolean;
     onReloadClick: () => void;
+    onFavouriteClick: () => void;
 }
 
 function Side(props:Props) {
@@ -30,7 +31,11 @@ function Side(props:Props) {
                 <Link to="/marsvin" style={{ textDecoration: 'none'}}>
                     <Button style={ buttonStyle } variant="info">Marsvin</Button>{' '}
                 </Link>
-                </div>    
+                <Link to="/favoriter" style={{ textDecoration: 'none'}}>
+                    <Button style={ buttonStyle } variant="info" onClick={ props.onFavouriteClick}>Favoriter</Button>{' '}
+                </Link>
+    
+            </div>    
         </div>
     )
 }
