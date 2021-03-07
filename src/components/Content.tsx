@@ -20,54 +20,30 @@ interface State {
 
 interface Props {
     isSpaceTheme: boolean;
+    poems: [];
 }
-class Content extends Component<Props, State> {
+function Content(props:Props) {
 
-    background = this.props.isSpaceTheme? backgroundSpace : backgroundClassic;
+    let background = props.isSpaceTheme? backgroundSpace : backgroundClassic;
     
-    state: State = {
-        poems: [],
-    }
+    return (
+        <div style={{
+            width: '100%',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            borderRadius: '0 2rem 0 0',
+            backgroundImage: `url(${background})` 
+            }}>
 
-    async fetchPoems() {
-        try {
-          const response = await fetch('https://www.poemist.com/api/v1/randompoems'
-          );
-          
-          const result = await response.json();
-          this.setState({ poems: result })
+            <Route exact path="/">
+                <PoemView poems={props.poems}/>
+            </Route>
+
+            <Route path="/marsvin" component={Marsvin}/>
+        
+        </div>
+    )
     
-        } catch (error: unknown) {
-          console.error(error);
-        }
-    }
-
-    componentDidMount() {
-        this.fetchPoems();
-    }
-
-
-    render() {
-
-        this.background = this.props.isSpaceTheme? backgroundSpace : backgroundClassic;
-        return (
-            <div style={{
-                width: '100%',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                borderRadius: '0 2rem 0 0',
-                backgroundImage: `url(${this.background})` 
-                }}>
-
-                <Route exact path="/">
-                    <PoemView poems={this.state.poems}/>
-                </Route>
-
-                <Route path="/marsvin" component={Marsvin}/>
-            
-            </div>
-        )
-    }
 }
 
 
