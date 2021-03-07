@@ -3,15 +3,27 @@ import Side from './Side';
 import Content from './Content';
 
 interface Props {}
+
+export interface Poem {
+    content: string
+    poet: {
+        name: string
+        url: string
+    }
+    title: string
+    url: string
+}
 interface State {
     isSpaceTheme: boolean;
-    poems: [];
+    poems: Poem[];
+
 }
 class Main extends Component <Props, State> {
     state: State = {
         isSpaceTheme: false,
         poems: []
     }
+
     toggleTheme = () => {
         this.setState({ isSpaceTheme: !this.state.isSpaceTheme})
       }
@@ -29,14 +41,19 @@ class Main extends Component <Props, State> {
         }
     }
 
+    updatePoems = () => {
+        this.fetchPoems();
+    }
+
     componentDidMount() {
         this.fetchPoems();
+
     }  
     render() {
         return (
             <div style={ mainStyle }>
                 <Content isSpaceTheme={this.state.isSpaceTheme} poems={this.state.poems}/>
-                <Side onThemeClick = {this.toggleTheme} spaceTheme={this.state.isSpaceTheme}/>
+                <Side onThemeClick = {this.toggleTheme} spaceTheme={this.state.isSpaceTheme} onReloadClick = {this.updatePoems}/>
             </div>            
         )
     }

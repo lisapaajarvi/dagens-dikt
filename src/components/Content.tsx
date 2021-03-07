@@ -1,26 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route} from 'react-router-dom';
 import PoemView from './PoemView';
 import backgroundClassic from '../assets/background-classic.jpg';
 import backgroundSpace from '../assets/background-space.jpg';
 import Marsvin from './Marsvin';
-export interface Poem {
-    content: string
-    poet: {
-        name: string
-        url: string
-    }
-    title: string
-    url: string
-}
-interface State {
-    poems: Poem[];
-
-}
+import {Poem} from './Main';
 
 interface Props {
     isSpaceTheme: boolean;
-    poems: [];
+    poems: Poem[];
 }
 function Content(props:Props) {
 

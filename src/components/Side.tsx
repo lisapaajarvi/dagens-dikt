@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 interface Props {
     onThemeClick: () => void;
     spaceTheme: boolean;
+    onReloadClick: () => void;
 }
 
 function Side(props:Props) {
@@ -25,7 +26,7 @@ function Side(props:Props) {
             <div>
                 <Button style={ buttonStyle } variant="info" 
                         onClick={ props.onThemeClick}>Byt tema</Button>{' '}
-                <Button style={ buttonStyle } variant="info" onClick={ reloadPage }>Nya dikter</Button>{' '}
+                <Button style={ buttonStyle } variant="info" onClick={ props.onReloadClick }>Nya dikter</Button>{' '}
                 <Link to="/marsvin" style={{ textDecoration: 'none'}}>
                     <Button style={ buttonStyle } variant="info">Marsvin</Button>{' '}
                 </Link>
@@ -34,10 +35,6 @@ function Side(props:Props) {
     )
 }
 
-
-const reloadPage = () => {
-    window.location.reload();
-}
 
 const sideStyle: CSSProperties = {
     display: 'flex',

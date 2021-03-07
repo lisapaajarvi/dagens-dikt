@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Poem } from './Content';
+import { Poem } from './Main';
 import Sectionitem from './Sectionitem';
 import ErrorBoundary from '../ErrorBoundary';
 

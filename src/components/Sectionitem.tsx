@@ -1,5 +1,5 @@
 import React, { Component, CSSProperties } from 'react';
-import { Poem } from './Content';
+import { Poem } from './Main';
 import Modal from './Modal';
 import ErrorBoundary from '../ErrorBoundary';
 interface Props {
