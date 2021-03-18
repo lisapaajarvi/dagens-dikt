@@ -57,7 +57,7 @@ class Main extends Component <Props, State> {
     render() {
         return (
             <div style={ mainStyle }>
-                <Content isSpaceTheme = {this.state.isSpaceTheme} poems={this.state.poems} favourites={this.state.favourites}/>
+                <Content isSpaceTheme = {this.state.isSpaceTheme} poems={this.state.poems} favourites={this.state.favourites} updateFavourites= {this.updateFavourites}/>
                 <Side 
                     	onThemeClick = {this.toggleTheme} 
                         spaceTheme = {this.state.isSpaceTheme} 

@@ -4,6 +4,7 @@ import Modal from './Modal';
 import ErrorBoundary from '../ErrorBoundary';
 interface Props {
     poem: Poem;
+    updateFavourites: () => void;
 }
 interface State {
     isModalVisible: boolean;
@@ -29,6 +30,9 @@ class FavouriteCard extends Component<Props, State> {
         const newFavourites = favourites.filter((item: Poem) => item.title !== this.props.poem.title);
         
         localStorage.setItem("favourites", JSON.stringify(newFavourites))
+
+        this.props.updateFavourites();
+
     }
 
     render() {

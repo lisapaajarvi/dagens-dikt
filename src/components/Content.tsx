@@ -5,11 +5,13 @@ import backgroundClassic from '../assets/background-classic.jpg';
 import backgroundSpace from '../assets/background-space.jpg';
 import Marsvin from './Marsvin';
 import {Poem} from './Main';
+import FavouriteView from './FavouriteView';
 
 interface Props {
     isSpaceTheme: boolean;
     poems: Poem[];
     favourites: Poem[];
+    updateFavourites: () => void;
 }
 function Content(props:Props) {
     
@@ -30,7 +32,7 @@ function Content(props:Props) {
 
             <Route path="/marsvin" component={Marsvin}/>
             <Route path="/favoriter">
-                <PoemView poems={props.favourites}/>
+                <FavouriteView poems={props.favourites} updateFavourites={props.updateFavourites}/>
             </Route>
             
 
