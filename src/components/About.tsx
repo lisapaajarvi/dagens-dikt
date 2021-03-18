@@ -36,7 +36,12 @@ const aboutContainer: CSSProperties = {
 const aboutDiv: CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
-    padding: '3rem'
+    margin: '3rem',
+    padding: '1rem',
+    background: 'rgba(255, 253, 247, 0.9)', 
+    boxShadow: 'rgba(0, 0, 0, 0.5) 1rem 1rem 2rem',
+    borderRadius: '1rem',
+
 }
 const marsvinContainer: CSSProperties = {
     display: 'flex',
