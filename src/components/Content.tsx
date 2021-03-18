@@ -3,7 +3,7 @@ import { Route} from 'react-router-dom';
 import PoemView from './PoemView';
 import backgroundClassic from '../assets/background-classic.jpg';
 import backgroundSpace from '../assets/background-space.jpg';
-import Marsvin from './Marsvin';
+import About from './About';
 import {Poem} from './Main';
 import FavouriteView from './FavouriteView';
 
@@ -30,7 +30,7 @@ function Content(props:Props) {
                 <PoemView poems={props.poems}/>
             </Route>
 
-            <Route path="/marsvin" component={Marsvin}/>
+            <Route path="/om" component={About}/>
             <Route path="/favoriter">
                 <FavouriteView poems={props.favourites} updateFavourites={props.updateFavourites}/>
             </Route>
