@@ -62,7 +62,8 @@ class Sectionitem extends Component<Props, State> {
 
 const buttonStyle: CSSProperties = {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: '1rem 0'
 }
 
 const poemStyle: CSSProperties = {
