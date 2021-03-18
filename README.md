@@ -21,4 +21,4 @@ Tony Martinsson
 
 * `npm start`   
 
-[https://github.com/mrgling/react-miniprojekt-1](https://github.com/mrgling/react-miniprojekt-1)
+[https://dagensdikt.netlify.app/](Gå till sidan på Netlify)
