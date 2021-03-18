@@ -28,8 +28,8 @@ function Side(props:Props) {
                 <Button style={ buttonStyle } variant="info" 
                         onClick={ props.onThemeClick}>Byt tema</Button>{' '}
                 <Button style={ buttonStyle } variant="info" onClick={ props.onReloadClick }>Nya dikter</Button>{' '}
-                <Link to="/marsvin" style={{ textDecoration: 'none'}}>
-                    <Button style={ buttonStyle } variant="info">Marsvin</Button>{' '}
+                <Link to="/om" style={{ textDecoration: 'none'}}>
+                    <Button style={ buttonStyle } variant="info">Om sidan</Button>{' '}
                 </Link>
                 <Link to="/favoriter" style={{ textDecoration: 'none'}}>
                     <Button style={ buttonStyle } variant="info" onClick={ props.onFavouriteClick}>Favoriter</Button>{' '}
